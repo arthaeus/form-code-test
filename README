@@ -1,0 +1,22 @@
+Details on the classes:
+  -The page class has the properties body and head.  
+    -Head is a class that encapsulates basic head attributes and functionality (You can add and remove elements).  The head class has a render() function which will render the <head> section.
+
+    -Body is an instance of the form_container (which holds the form elements).
+      -The form_container has a property called form_inputs.  The form_inputs property is an array to hold instances of form_input.  The form_input class was already provided.
+      -The form_container class has an add() function to add a form_input, and a remove() function to remove a form_input.
+      -The form_container class also has a get_input_by_name() function so that if needed, client code can access a specific form_input.
+
+
+  -The page class also has getters/setters to access head and body in case other client code needs them.
+  -In the page class' render() function, I delegate responsibility for outputting <head> to the head class' render() function.  I let the page class be responsible for outputting the body.  The <body> is outputted with a function on the page class called output_body().
+
+
+
+
+
+To run the code, clone the repo to your machine, and then from the console:
+cd codeTest
+php main.php
+
+You will see the html output on your console.

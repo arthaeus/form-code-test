@@ -1,43 +1,36 @@
 <?php
 
-abstract class output {
+namespace Sample\Main;
 
-     public function render ();
+require_once( "form_input.php" );
+require_once( "page.php" );
 
+use Sample\Form_Input\form_input;
+use Sample\Page\page;
+
+class main
+{
+    public function go()
+    {
+
+        $p = new page();
+
+        $firstNameBox = new form_input( 'firstName' , 'firstLabel' , 'text' ); 
+        $lastNameBox = new form_input( 'lastName' , 'lastLabel' , 'text' ); 
+
+        $p
+         ->get_body()
+         ->add( $firstNameBox );
+
+        $p
+         ->get_body()
+         ->add( $lastNameBox );
+
+        $p->render();
+    }
 }
 
-class form_input extends output {
-
-     function __construct($field = null, $label = null) {
-
-         $this->field = $field;
-
-         $this->label = $label;
-
-     }
-
-     function render() {
-
-         return '<p>' . $this->show_label() . $this->show_input() '</p>\n";
-
-     }
-
-     function show_label() {
-
-         return '<span class="label">' . htmlentities($this->label,
-
-ENT_COMPAT, 'utf8') . '</span>';
-
-     }
-
-     function show_input() {
-
-         return '<input type="' . $this->type
-
-           . '" name="' . $this->field ."\">';
-
-     }
-
-}
+$m = new main();
+$m->go();
 
 ?>

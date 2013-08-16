@@ -1,0 +1,45 @@
+#Here is a git diff to show the changes that I made to the form_input class
+
+diff --git a/main.php b/main.php
+index 60a2972..ac4ec66 100644
+--- a/main.php
++++ b/main.php
+@@ -2,13 +2,13 @@
+
+#An abstract function needs to have the keyword 'abstract' prepended to the function declaration
+
+ abstract class output {
+ 
+-     public function render ();
++     abstract public function render ();
+ 
+ }
+ 
+ 
+#When declaring a function, the visibility level (public, protected, or private) must be a part of the function declaration
+#The following was corrected in all of the function declarations in the form_input class:
+-     function __construct($field = null, $label = null) {
++     public function __construct($field = null, $label = null) {
+ 
+-     function render() {
++     public function render() {
+ 
+-     function show_label() {
++     public function show_label() {
+ 
+-     function show_input() {
++     public function show_input() {
+
+#There were syntax errors in the render() function of the form_input class.  There needs to be a '.' to concatenate the </p>, and the single quote
+#needs to be a double quote (or vice verca)
+-         return '<p>' . $this->show_label() . $this->show_input() '</p>\n";
++         return '<p>' . $this->show_label() . $this->show_input() . "</p>\n";
+
+#utf8 should be utf-8
+-         return '<span class="label">' . htmlentities($this->label,
+-ENT_COMPAT, 'utf8') . '</span>';
++         return '<span class="label">' . htmlentities($this->label,ENT_COMPAT, 'utf-8') . '</span>';
+
+#the input tag should end with a '/', not a '\'.  There was also a syntax error in concatenating the ending part of the input tag.
+-           . '" name="' . $this->field ."\">';
++         return '<input type="' . $this->type . '" name="' . $this->field ."/>";
