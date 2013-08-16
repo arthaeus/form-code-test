@@ -12,6 +12,9 @@ Details on the classes:
   -In the page class' render() function, I delegate responsibility for outputting <head> to the head class' render() function.  I let the page class be responsible for outputting the body.  The <body> is outputted with a function on the page class called output_body().
 
 
+To drive the program, I made a simple main class that instantiates the inputs, and the page.  I call setters to add the inputs, and then I render the form.
+
+I detail the corrections that I made to the form_input class in errors.txt
 
 
 
